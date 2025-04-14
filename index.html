@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolarCalc</title>
+
+    <!--Css-->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Bootstrap início -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+    <script defer src="assets/"></script>
+ 
+</head>
+<body>
+
+    <div class="container mt-5 mb-5">
+    <form id="solarForm" action="#" method="post" class="p-4 border rounded shadow bg-white">
+        <h4 class="text-warning mb-4">Dimensionamento Solar On-Grid</h4>
+
+        <!-- Tipo de Rede -->
+        <div class="form-group">
+        <label for="tipoRede">Tipo de Rede</label>
+        <select id="tipoRede" name="tipoRede" class="form-control">
+            <option value="monofasico">Monofásico</option>
+            <option value="bifasico">Bifásico</option>
+            <option value="trifasico">Trifásico</option>
+        </select>
+        </div>
+
+        <!-- Consumo Mensal -->
+        <div class="form-group">
+        <label for="consumoMensal">Consumo mensal (kWh)</label>
+        <input type="number" id="consumoMensal" name="consumoMensal" class="form-control" required>
+        </div>
+
+        <!-- Irradiância -->
+        <div class="form-group">
+        <label for="irradiancia">Irradiância média (kWh/m²/dia)</label>
+        <input type="number" step="0.1" id="irradiancia" class="form-control" name="irradiancia" value="5.0">
+        </div>
+
+        <!-- Rendimento -->
+        <div class="form-group">
+        <label for="rendimento">Rendimento (ex: 0.8)</label>
+        <input type="number" step="0.01" id="rendimento" class="form-control" name="rendimento" value="0.8">
+        </div>
+
+        <!-- Potência do painel -->
+        <div class="form-group">
+        <label for="potenciaPainel">Potência do Painel (W)</label>
+        <input type="number" id="potenciaPainel" name="potenciaPainel" class="form-control" value="550">
+        </div>
+
+        <!-- Voc e Vmpp -->
+        <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="vocPainel">Voc do Painel (V)</label>
+            <input type="number" id="vocPainel" name="vocPainel" step="0.01" class="form-control" value="49">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="vmppPainel">Vmpp do Painel (V)</label>
+            <input type="number" id="vmppPainel" name="vmppPainel" step="0.01" class="form-control" value="42">
+        </div>
+        </div>
+
+        <!-- MPPT do Inversor -->
+        <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="mpptMin">MPPT Mínimo (V)</label>
+            <input type="number" id="mpptMin" name="mpptMin" class="form-control" value="200">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="mpptMax">MPPT Máximo (V)</label>
+            <input type="number" id="mpptMax" name="mpptMax" class="form-control" value="600">
+        </div>
+        </div>
+
+        <!-- Botão -->
+        <button id="calcularSistema" type="submit" class="btn btn-warning btn-block font-weight-bold">
+        Calcular Sistema
+        </button>
+    </form>
+
+    <!--Resultado-->
+    <div class="hidden"  id="resultado">
+      <div class="mt-4 p-4 bg-light rounded shadow-sm">
+          <h5 class="text-warning mb-3">Resultado do Dimensionamento</h5>
+      
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <strong>Consumo diário:</strong> <span id="consumoDiario"> 20 </span> kWh
+            </li>
+            <li class="list-group-item">
+              <strong>Sistema necessário:</strong> <span id="sistemaNecessario">5.71</span> kWp
+            </li>
+            <li class="list-group-item">
+              <strong>Quantidade de painéis:</strong> <span id="quantidadePaineis">11</span> unidades
+            </li>
+            <li class="list-group-item">
+              <strong>Inversor ideal:</strong> entre <span id="inversorMin">5.1</span> kW e <span id="inversorMax">6.3</span> kW
+            </li>
+            <li class="list-group-item">
+              <strong>Painéis por string (máx):</strong> <span id="stringMax">12</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
