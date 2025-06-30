@@ -8,25 +8,26 @@
     <!--Css-->
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <!-- Bootstrap início -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <!-- Font Awesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
-    <script defer src="assets/"></script>
+    <script defer src="assets/js/app.js"></script>
  
 </head>
 <body>
 
-    <div class="container mt-5 mb-5">
-    <form id="solarForm" action="#" method="post" class="p-4 border rounded shadow bg-white">
+    <header class="header">
+      <a href=""><img src="assets/images/logo.png" alt="logo" width="200" height="200"></a>
+    </header>
+
+    <div class="container">
+    <form id="solarForm" class="form">
         <h4 class="text-warning mb-4">Dimensionamento Solar On-Grid</h4>
 
         <!-- Tipo de Rede -->
         <div class="form-group">
         <label for="tipoRede">Tipo de Rede</label>
-        <select id="tipoRede" name="tipoRede" class="form-control">
+        <select id="tipoRede" name="tipoRede" class="">
             <option value="monofasico">Monofásico</option>
             <option value="bifasico">Bifásico</option>
             <option value="trifasico">Trifásico</option>
@@ -36,81 +37,88 @@
         <!-- Consumo Mensal -->
         <div class="form-group">
         <label for="consumoMensal">Consumo mensal (kWh)</label>
-        <input type="number" id="consumoMensal" name="consumoMensal" class="form-control" required>
+        <input type="number" id="consumoMensal" name="consumoMensal" class="" required>
         </div>
 
         <!-- Irradiância -->
         <div class="form-group">
         <label for="irradiancia">Irradiância média (kWh/m²/dia)</label>
-        <input type="number" step="0.1" id="irradiancia" class="form-control" name="irradiancia" value="5.0">
+        <input type="number" step="0.1" id="irradiancia" class="" name="irradiancia" value="5.0">
         </div>
 
         <!-- Rendimento -->
         <div class="form-group">
         <label for="rendimento">Rendimento (ex: 0.8)</label>
-        <input type="number" step="0.01" id="rendimento" class="form-control" name="rendimento" value="0.8">
+        <input type="number" step="0.01" id="rendimento" class="" name="rendimento" value="0.8">
         </div>
 
         <!-- Potência do painel -->
         <div class="form-group">
         <label for="potenciaPainel">Potência do Painel (W)</label>
-        <input type="number" id="potenciaPainel" name="potenciaPainel" class="form-control" value="550">
+        <input type="number" id="potenciaPainel" name="potenciaPainel" class="" value="550">
         </div>
 
         <!-- Voc e Vmpp -->
-        <div class="form-row">
-        <div class="form-group col-md-6">
+      
+        <div class="form-group">
             <label for="vocPainel">Voc do Painel (V)</label>
-            <input type="number" id="vocPainel" name="vocPainel" step="0.01" class="form-control" value="49">
+            <input type="number" id="vocPainel" name="vocPainel" step="0.01" class="" value="49">
         </div>
-        <div class="form-group col-md-6">
+
+        <div class="form-group">
             <label for="vmppPainel">Vmpp do Painel (V)</label>
-            <input type="number" id="vmppPainel" name="vmppPainel" step="0.01" class="form-control" value="42">
+            <input type="number" id="vmppPainel" name="vmppPainel" step="0.01" class="" value="42">
         </div>
-        </div>
+      
 
         <!-- MPPT do Inversor -->
-        <div class="form-row">
-        <div class="form-group col-md-6">
+      
+        <div class="form-group">
             <label for="mpptMin">MPPT Mínimo (V)</label>
-            <input type="number" id="mpptMin" name="mpptMin" class="form-control" value="200">
-        </div>
-        <div class="form-group col-md-6">
-            <label for="mpptMax">MPPT Máximo (V)</label>
-            <input type="number" id="mpptMax" name="mpptMax" class="form-control" value="600">
-        </div>
+            <input type="number" id="mpptMin" name="mpptMin" class="" value="200">
         </div>
 
+        <div class="form-group">
+            <label for="mpptMax">MPPT Máximo (V)</label>
+            <input type="number" id="mpptMax" name="mpptMax" class="" value="600">
+        </div>
+        
+
         <!-- Botão -->
-        <button id="calcularSistema" type="submit" class="btn btn-warning btn-block font-weight-bold">
+        <button id="calcularSistema" type="submit" class="btn">
         Calcular Sistema
         </button>
     </form>
 
     <!--Resultado-->
-    <div class="hidden"  id="resultado">
-      <div class="mt-4 p-4 bg-light rounded shadow-sm">
-          <h5 class="text-warning mb-3">Resultado do Dimensionamento</h5>
+    <div class="hidden resultado"  id="resultado">
+      <div class="">
+          <h5 class="">Resultado do Dimensionamento</h5>
       
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
+          <ul class="">
+            <li class="">
               <strong>Consumo diário:</strong> <span id="consumoDiario"> 20 </span> kWh
             </li>
-            <li class="list-group-item">
+            <li class="">
               <strong>Sistema necessário:</strong> <span id="sistemaNecessario">5.71</span> kWp
             </li>
-            <li class="list-group-item">
+            <li class="">
               <strong>Quantidade de painéis:</strong> <span id="quantidadePaineis">11</span> unidades
             </li>
-            <li class="list-group-item">
+            <li class="">
               <strong>Inversor ideal:</strong> entre <span id="inversorMin">5.1</span> kW e <span id="inversorMax">6.3</span> kW
             </li>
-            <li class="list-group-item">
+            <li class="">
               <strong>Painéis por string (máx):</strong> <span id="stringMax">12</span>
             </li>
           </ul>
         </div>
       </div>
+      <footer class="footer">
+        <p>&copy; 2025 - Julio Gabriel</p>
+      </footer>
     </div>
+
+    
 </body>
 </html>

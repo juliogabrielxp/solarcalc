@@ -39,23 +39,23 @@
         // Exibir resultados no HTML
         const resultadoDiv = document.getElementById('resultado');
         resultadoDiv.innerHTML = `
-        <div class="mt-4 p-4 bg-light rounded shadow-sm">
-          <h5 class="text-warning mb-3">Resultado do Dimensionamento</h5>
+        <div class="resultado">
+          <h2 class="">Resultado do Dimensionamento</h2>
       
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
+          <ul class="">
+            <li class="">
               <strong>Consumo diário:</strong> <span id="consumoDiario">${consumoDiario.toFixed(1)}</span> kWh
             </li>
-            <li class="list-group-item">
+            <li class="">
               <strong>Sistema necessário:</strong> <span id="sistemaNecessario">${potenciaSistema}</span> kWp
             </li>
-            <li class="list-group-item">
+            <li class="">
               <strong>Quantidade de painéis:</strong> <span id="quantidadePaineis">${numeroPaineis}</span> unidades
             </li>
-            <li class="list-group-item">
+            <li class="">
               <strong>Inversor ideal:</strong> entre <span id="inversorMin">${potenciaMinInversor}</span> kW e <span id="inversorMax">${potenciaMaxInversor}</span> kW
             </li>
-            <li class="list-group-item">
+            <li class="">
               <strong>Painéis por string (máx):</strong> <span id="stringMax">${maxPaineisStrings}</span>
             </li>
           </ul>

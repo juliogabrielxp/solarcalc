@@ -1,0 +1,18 @@
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.log
+
+# Node (caso use futuramente)
+node_modules/
+
+# Backup/Temp
+*.tmp
+*.bak
+*.swp
+
+# MacOS
+__MACOSX
